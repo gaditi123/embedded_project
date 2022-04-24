@@ -11,9 +11,12 @@ int countDivide = 0;
 int countModulo = 0;
 int countExponent = 0;
 int countXOR = 0;
+int countAND=0;
+int countOR = 0;
+int countNOT = 0;
 
-// char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\result.dot";
-char result[] = "D:\\embedded_project\\result.dot";
+char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\result.dot";
+//char result[] = "D:\\embedded_project\\result.dot";
 ofstream fout(result);
 
 void help(vector<string> &answerVariable, vector<string> &operands, string operatorArgument){
@@ -73,6 +76,33 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operands[0]<<" -> xor"<<xorChar<<";"<<endl;
         fout<<operands[1]<<" -> xor"<<xorChar<<";"<<endl;
         fout<<"xor"<<xorChar<<"-> "<<answerVariable[0]<<";"<<endl;
+    }
+    else if(operatorArgument == "&"){
+        countAND++;
+        char andChar = countAND + '0';
+        operatorsMap["&"][3] = andChar;
+        fout<<operatorsMap["&"]<<endl;
+        fout<<operands[0]<<" -> and"<<andChar<<";"<<endl;
+        fout<<operands[1]<<" -> and"<<andChar<<";"<<endl;
+        fout<<"and"<<andChar<<"-> "<<answerVariable[0]<<";"<<endl;
+    }
+    else if(operatorArgument == "|"){
+        countOR++;
+        char orChar = countOR + '0';
+        operatorsMap["|"][2] = orChar;
+        fout<<operatorsMap["|"]<<endl;
+        fout<<operands[0]<<" -> or"<<orChar<<";"<<endl;
+        fout<<operands[1]<<" -> or"<<orChar<<";"<<endl;
+        fout<<"or"<<orChar<<"-> "<<answerVariable[0]<<";"<<endl;
+    }
+    else if(operatorArgument == "~"){
+        countNOT++;
+        char notChar = countNOT + '0';
+        operatorsMap["~"][3] = notChar;
+        fout<<operatorsMap["~"]<<endl;
+        fout<<operands[0]<<" -> not"<<notChar<<";"<<endl;
+        fout<<operands[1]<<" -> not"<<notChar<<";"<<endl;
+        fout<<"not"<<notChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }
 }
 
