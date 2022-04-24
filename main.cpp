@@ -150,7 +150,7 @@ int main(){
                 int variableDetectionCounter = 0;
                 int equationDetectionCounter = 0;
 
-                if(str.length() == 12){
+                if(str.length() == 11){
                     variableDetectionCounter = 0;
                     countEqual++;
                     char equalChar = countEqual + '0';
@@ -164,6 +164,7 @@ int main(){
                            fout<<"equal"<<equalChar<<" -> "<< word <<";"<<endl;
                        }
                        else if(variableDetectionCounter == 2) {
+                           word = word.substr(0, word.size()-1);
                            variableValues.push_back(stoi(word));
                            fout<<word<<" -> "<< "equal" << equalChar<< ";"<<endl;
                        }
@@ -177,6 +178,9 @@ int main(){
                         if(equationDetectionCounter == 0){
                             answerVariable.push_back(word);
                         }else if(equationDetectionCounter == 2 or equationDetectionCounter == 4){
+                            if(equationDetectionCounter == 4){
+                                word = word.substr(0, word.size()-1);
+                            }
                             operands.push_back(word);
                         }else if(equationDetectionCounter == 3){
                             operatorArgument = word;

@@ -1,37 +1,37 @@
 module des;
-reg [7:0] data1 ;
-reg [7:0] data2 ;
+reg [7:0] data1;
+reg [7:0] data2;
 
 initial begin
-data1 = 45 ;
-data2 = 09 ;
-datax = 69 ;
+data1 = 45;
+data2 = 09;
+datax = 69;
 
-data3 = data1 + datax ;
+data3 = data1 + datax;
 $display ("Add += %d", data3);
 
-data4 = data1 - data2 ;
+data4 = data1 - data2;
 $display ("Sub %d", data3); 
 
-data5 = data1 * data2 ;
+data5 = data1 * data2;
 $display ("Mul %d", data3);
 
-data5 = data1 / datax ;
+data5 = data1 / datax;
 $display ("Div / - %d", data3);
 
-data6 = data1 % data2 ;
+data6 = data1 % data2;
 $display ("Mod %% %d", data3);
 
-data7 = data2 ** 2 ;
+data7 = data2 ** 2;
 $display ("Pow * %d", data3);
 
-data8 = data2 ^ datax ;
+data8 = data2 ^ datax;
 $display ("Pow * %d", data3);
 
-data9 = data2 & datax ;
+data9 = data2 & datax;
 $display ("Pow * %d", data3);
 
-data10 = data2 | datax ;
+data10 = data2 | datax;
 $display ("Pow * %d", data3);
 
 end
