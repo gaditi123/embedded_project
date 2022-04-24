@@ -10,19 +10,19 @@ data2 = 09 ;
 data3 = data1 + data2 ;
 $display ("Add += %d", data3);
 
-data3 = data1 - data2 ;
+data4 = data1 - data2 ;
 $display ("Sub %d", data3); 
 
-data3 = data1 * data2 ;
+data5 = data1 * data2 ;
 $display ("Mul %d", data3);
 
-data3 = data1 / data2 ;
+data5 = data1 / data2 ;
 $display ("Div / - %d", data3);
 
-data3 = data1 % data2 ;
+data6 = data1 % data2 ;
 $display ("Mod %% %d", data3);
 
-data3 = data2 ** 2 ;
+data7 = data2 ** 2 ;
 $display ("Pow * %d", data3);
 
 end

@@ -56,11 +56,11 @@ int main(){
                        if(variableDetectionCounter==0) 
                        {    
                            variableNames.push_back(word);
-                           fout << "equal1 -> " << word << ";"<<endl;
+                           //fout << "equal1 -> " << word << ";"<<endl;
                        }
                        else if(variableDetectionCounter==2) {
                            variableValues.push_back(stoi(word));
-                           fout << word << "-> equal1;"<<endl;
+                           //fout << word << "-> equal1;"<<endl;
                        }
                        variableDetectionCounter++;
                     }
@@ -91,10 +91,12 @@ int main(){
     }
 
     cout << "\n\n results\n";
-
+    vector<string> equalOperatorNames{"equal1", "equal2"};
     for (int i = 0; i < answerVariable.size();i++){
         cout << answerVariable[i]<<"\n";
         cout << operators[i] << "\n";
+        fout << equalOperatorNames[i] << " -> " << answerVariable[i] << ";" << endl;
+        fout << operators[i] << " -> " << equalOperatorNames[i] << ";" << endl;
     }
     cout << "operands\n";
     for (int i = 0; i < operands.size();i++){
