@@ -4,10 +4,10 @@ reg [7:0] data2 ;
 
 initial begin
 data1 = 45 ;
-
 data2 = 09 ;
+dataxyz = 69;
 
-data3 = data1 + data2 ;
+data3 = data1 + dataxyz ;
 $display ("Add += %d", data3);
 
 data4 = data1 - data2 ;
@@ -16,13 +16,16 @@ $display ("Sub %d", data3);
 data5 = data1 * data2 ;
 $display ("Mul %d", data3);
 
-data5 = data1 / data2 ;
+data5 = data1 / dataxyz ;
 $display ("Div / - %d", data3);
 
 data6 = data1 % data2 ;
 $display ("Mod %% %d", data3);
 
 data7 = data2 ** 2 ;
+$display ("Pow * %d", data3);
+
+data8 = data2 ^ dataxyz ;
 $display ("Pow * %d", data3);
 
 end
