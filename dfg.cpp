@@ -125,7 +125,7 @@ int main(){
     fout << "digraph result {" << endl;
     
     ifstream testFile;
-    testFile.open("test.txt");
+    testFile.open("dfgTest.txt");
     vector<string> variableNames;
     vector<int> variableValues;
     vector<string> answerVariable;
