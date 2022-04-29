@@ -2,8 +2,8 @@
 
 using namespace std;
 
-// char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\result1.dot";
-char result[] = "D:\\embedded_project\\result.dot";
+// char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\resultCFG.dot";
+char result[] = "D:\\embedded_project\\resultCFG.dot";
 ofstream fout(result);
 
 int main(){

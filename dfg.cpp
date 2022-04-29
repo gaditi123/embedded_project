@@ -15,8 +15,8 @@ int countAND=0;
 int countOR = 0;
 int countNOT = 0;
 
-char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\result.dot";
-//char result[] = "D:\\embedded_project\\result.dot";
+char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\resultDFG.dot";
+//char result[] = "D:\\embedded_project\\resultDFG.dot";
 ofstream fout(result);
 
 void help(vector<string> &answerVariable, vector<string> &operands, string operatorArgument){

@@ -1,21 +1,26 @@
-int x = 5, y = 12;
+module des;
+reg [7:0] x;
+reg [7:0] y;
+
+initial begin
+x = 1827;
+y = 11283;
 
 if(x % 5 == 0){
     x = 10;
 }else if(x < y - 5){
     y = y - 1;
 }else if(x < y - 25){
-    y = y + 1;
+    h = h + 11;
 }else if(x < y + 25){
-    y = y * 1;
+    z = z * 291;
 }else if(x < y - 4){
-    y = y / 1;
+    f = f / 1099;
 }else if(x < y - 2){
-    y = y & 1;
+    o = o & 198;
 }else{
-    x = y + 5;
+    q = t + 5;
 }
 
-int z = y - x;
-
-cout<<z<<endl;
+end
+endmodule;
