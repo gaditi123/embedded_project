@@ -22,105 +22,99 @@ ofstream fout(result);
 
 void help(vector<string> &answerVariable, vector<string> &operands, string operatorArgument)
 {
-    if (operatorArgument == "+")
-    {
+   if(operatorArgument == "+"){
         countPlus++;
         char plusChar = countPlus + '0';
         operatorsMap["+"][4] = plusChar;
-        fout << operatorsMap["+"] << endl;
-        fout << operands[0] << " -> plus" << plusChar << ";" << endl;
-        fout << operands[1] << " -> plus" << plusChar << ";" << endl;
+        fout<<operatorsMap["+"]<<endl;
+        fout<<operands[0]<<" -> plus"<<plusChar<<";"<<endl;
+        fout<<operands[1]<<" -> plus"<<plusChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout << "plus" << plusChar << "-> " << answerVariable[0] << ";" << endl;
-    }
-    else if (operatorArgument == "-")
-    {
+    }else if(operatorArgument == "-"){
         countMinus++;
         char minusChar = countMinus + '0';
         operatorsMap["-"][5] = minusChar;
-        fout << operatorsMap["-"] << endl;
-        fout << operands[0] << " -> minus" << minusChar << ";" << endl;
-        fout << operands[1] << " -> minus" << minusChar << ";" << endl;
-        fout << "minus" << minusChar << "-> " << answerVariable[0] << ";" << endl;
-    }
-    else if (operatorArgument == "*")
-    {
+        fout<<operatorsMap["-"]<<endl;
+        fout<<operands[0]<<" -> minus"<<minusChar<<";"<<endl;
+        fout<<operands[1]<<" -> minus"<<minusChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout<<"minus"<<minusChar<<"-> "<<answerVariable[0]<<";"<<endl;
+    }else if(operatorArgument == "*"){
         countMultiply++;
         char multiplyChar = countMultiply + '0';
         operatorsMap["*"][8] = multiplyChar;
-        fout << operatorsMap["*"] << endl;
-        fout << operands[0] << " -> multiply" << multiplyChar << ";" << endl;
-        fout << operands[1] << " -> multiply" << multiplyChar << ";" << endl;
-        fout << "multiply" << multiplyChar << "-> " << answerVariable[0] << ";" << endl;
-    }
-    else if (operatorArgument == "/")
-    {
+        fout<<operatorsMap["*"]<<endl;
+        fout<<operands[0]<<" -> multiply"<<multiplyChar<<";"<<endl;
+        fout<<operands[1]<<" -> multiply"<<multiplyChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout<<"multiply"<<multiplyChar<<"-> "<<answerVariable[0]<<";"<<endl;
+    }else if(operatorArgument == "/"){
         countDivide++;
         char divideChar = countDivide + '0';
         operatorsMap["/"][6] = divideChar;
-        fout << operatorsMap["/"] << endl;
-        fout << operands[0] << " -> divide" << divideChar << ";" << endl;
-        fout << operands[1] << " -> divide" << divideChar << ";" << endl;
-        fout << "divide" << divideChar << "-> " << answerVariable[0] << ";" << endl;
-    }
-    else if (operatorArgument == "%")
-    {
+        fout<<operatorsMap["/"]<<endl;
+        fout<<operands[0]<<" -> divide"<<divideChar<<";"<<endl;
+        fout<<operands[1]<<" -> divide"<<divideChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout<<"divide"<<divideChar<<"-> "<<answerVariable[0]<<";"<<endl;
+    }else if(operatorArgument == "%"){
         countModulo++;
         char moduloChar = countModulo + '0';
         operatorsMap["%"][6] = moduloChar;
-        fout << operatorsMap["%"] << endl;
-        fout << operands[0] << " -> modulo" << moduloChar << ";" << endl;
-        fout << operands[1] << " -> modulo" << moduloChar << ";" << endl;
-        fout << "modulo" << moduloChar << "-> " << answerVariable[0] << ";" << endl;
-    }
-    else if (operatorArgument == "**")
-    {
+        fout<<operatorsMap["%"]<<endl;
+        fout<<operands[0]<<" -> modulo"<<moduloChar<<";"<<endl;
+        fout<<operands[1]<<" -> modulo"<<moduloChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout<<"modulo"<<moduloChar<<"-> "<<answerVariable[0]<<";"<<endl;
+    }else if(operatorArgument == "**"){
         countExponent++;
         char exponentChar = countExponent + '0';
         operatorsMap["**"][8] = exponentChar;
-        fout << operatorsMap["**"] << endl;
-        fout << operands[0] << " -> exponent" << exponentChar << ";" << endl;
-        fout << operands[1] << " -> exponent" << exponentChar << ";" << endl;
-        fout << "exponent" << exponentChar << "-> " << answerVariable[0] << ";" << endl;
-    }
-    else if (operatorArgument == "^")
-    {
+        fout<<operatorsMap["**"]<<endl;
+        fout<<operands[0]<<" -> exponent"<<exponentChar<<";"<<endl;
+        fout<<operands[1]<<" -> exponent"<<exponentChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout<<"exponent"<<exponentChar<<"-> "<<answerVariable[0]<<";"<<endl;
+    }else if(operatorArgument == "^"){
         countXOR++;
         char xorChar = countXOR + '0';
         operatorsMap["^"][3] = xorChar;
-        fout << operatorsMap["^"] << endl;
-        fout << operands[0] << " -> xor" << xorChar << ";" << endl;
-        fout << operands[1] << " -> xor" << xorChar << ";" << endl;
-        fout << "xor" << xorChar << "-> " << answerVariable[0] << ";" << endl;
+        fout<<operatorsMap["^"]<<endl;
+        fout<<operands[0]<<" -> xor"<<xorChar<<";"<<endl;
+        fout<<operands[1]<<" -> xor"<<xorChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout<<"xor"<<xorChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }
-    else if (operatorArgument == "&")
-    {
+    else if(operatorArgument == "&"){
         countAND++;
         char andChar = countAND + '0';
         operatorsMap["&"][3] = andChar;
-        fout << operatorsMap["&"] << endl;
-        fout << operands[0] << " -> and" << andChar << ";" << endl;
-        fout << operands[1] << " -> and" << andChar << ";" << endl;
-        fout << "and" << andChar << "-> " << answerVariable[0] << ";" << endl;
+        fout<<operatorsMap["&"]<<endl;
+        fout<<operands[0]<<" -> and"<<andChar<<";"<<endl;
+        fout<<operands[1]<<" -> and"<<andChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout<<"and"<<andChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }
-    else if (operatorArgument == "|")
-    {
+    else if(operatorArgument == "|"){
         countOR++;
         char orChar = countOR + '0';
         operatorsMap["|"][2] = orChar;
-        fout << operatorsMap["|"] << endl;
-        fout << operands[0] << " -> or" << orChar << ";" << endl;
-        fout << operands[1] << " -> or" << orChar << ";" << endl;
-        fout << "or" << orChar << "-> " << answerVariable[0] << ";" << endl;
+        fout<<operatorsMap["|"]<<endl;
+        fout<<operands[0]<<" -> or"<<orChar<<";"<<endl;
+        fout<<operands[1]<<" -> or"<<orChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout<<"or"<<orChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }
-    else if (operatorArgument == "~")
-    {
+    else if(operatorArgument == "~"){
         countNOT++;
         char notChar = countNOT + '0';
         operatorsMap["~"][3] = notChar;
-        fout << operatorsMap["~"] << endl;
-        fout << operands[0] << " -> not" << notChar << ";" << endl;
-        fout << operands[1] << " -> not" << notChar << ";" << endl;
-        fout << "not" << notChar << "-> " << answerVariable[0] << ";" << endl;
+        fout<<operatorsMap["~"]<<endl;
+        fout<<operands[0]<<" -> not"<<notChar<<";"<<endl;
+        fout<<operands[1]<<" -> not"<<notChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout<<"not"<<notChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }
 }
 
@@ -129,17 +123,17 @@ string mainFunctionHelper(string str)
 
     // vector<string> ignoreStatements = {"module", "reg", "initial", "$display", "end", "endmodule"};
 
-    operatorsMap.insert({"=", "equali [label = <&#061;>]"});
-    operatorsMap.insert({"+", "plusi [label = <&#043;>]"});
-    operatorsMap.insert({"-", "minusi [label = <&#045;>]"});
-    operatorsMap.insert({"*", "multiplyi [label = <&#042;>]"});
-    operatorsMap.insert({"/", "dividei [label = <&#047;>]"});
-    operatorsMap.insert({"%", "moduloi [label = <&#037;>]"});
-    operatorsMap.insert({"**", "exponenti [label = <&#094;>]"});
-    operatorsMap.insert({"&", "andi [label = <&#038;>]"});
-    operatorsMap.insert({"|", "ori [label = <&#124;>]"});
-    operatorsMap.insert({"~", "noti [label = <&#126;>]"});
-    operatorsMap.insert({"^", "xori [label = <&#8853;>]"});
+    operatorsMap.insert({"=", "equali [label = <&#061;> ,fillcolor=greenyellow, style=filled]"});
+    operatorsMap.insert({"+", "plusi [label = <&#043;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"-", "minusi [label = <&#045;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"*", "multiplyi [label = <&#042;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"/", "dividei [label = <&#047;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"%", "moduloi [label = <&#037;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"**", "exponenti [label = <&#094;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"&", "andi [label = <&#038;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"|", "ori [label = <&#124;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"~", "noti [label = <&#126;> ,fillcolor=lightvlue, style=filled]"});
+    operatorsMap.insert({"^", "xori [label = <&#8853;> ,fillcolor=lightblue, style=filled]"});
 
     vector<string> variableNames;
     vector<int> variableValues;
@@ -165,14 +159,15 @@ string mainFunctionHelper(string str)
             if (variableDetectionCounter == 0)
             {
                 variableNames.push_back(word);
+                fout << word << " [fillcolor = lightcoral, style=filled]";
                 fout << "equal" << equalChar << " -> " << word << ";" << endl;
             }
             else if (variableDetectionCounter == 2)
             {
                 word = word.substr(0, word.size() - 1);
                 variableValues.push_back(stoi(word));
-                fout << word << " -> "
-                     << "equal" << equalChar << ";" << endl;
+                fout << word << " [fillcolor = khaki, style=filled]";
+                fout << word << " -> " << "equal" << equalChar << ";" << endl;
                 return word;
             }
             variableDetectionCounter++;
@@ -240,7 +235,7 @@ int main()
             }
             if (!found)
             {
-                string str, ifCondition, elseIfCondtion, elseCondition, previousCondition;
+                string str, ifCondition, elseIfCondition, elseCondition, previousCondition;
                 while (getline(testFile, str))
                 {
                     bool found = false;
@@ -257,34 +252,39 @@ int main()
                         cout << str << "\n";
                         string num = mainFunctionHelper(str);
                         str = str.substr(0, str.size() - 1);
+                        fout << "\"" << ifCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
                         fout << "\"" << ifCondition << "\" -> \"" << num << "\" [ label=\" True \" ] ;" << endl;
                     }
                     else if (str.substr(0, 9) == "}else if(")
                     {
                         if (previousCondition == "else if")
                         {
-                            string currentElseIfCondtion = str.substr(9);
-                            currentElseIfCondtion = currentElseIfCondtion.substr(0, currentElseIfCondtion.size() - 1);
-                            currentElseIfCondtion = currentElseIfCondtion.substr(0, currentElseIfCondtion.size() - 1);
+                            string currentElseIfCondition = str.substr(9);
+                            currentElseIfCondition = currentElseIfCondition.substr(0, currentElseIfCondition.size() - 1);
+                            currentElseIfCondition = currentElseIfCondition.substr(0, currentElseIfCondition.size() - 1);
                             getline(testFile, str);
                             cout << str << "\n";
                             string num2 = mainFunctionHelper(str);
                             str = str.substr(0, str.size() - 1);
-                            fout << "\"" << elseIfCondtion << "\" -> \"" << currentElseIfCondtion << "\" [ label=\" False \" ] ;" << endl;
-                            fout << "\"" << currentElseIfCondtion << "\" -> \"" << num2 << "\" [ label=\" True \" ] ;" << endl;
-                            elseIfCondtion = currentElseIfCondtion;
+                            fout << "\"" << elseIfCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
+                            fout << "\"" << elseIfCondition << "\" -> \"" << currentElseIfCondition << "\" [ label=\" False \" ] ;" << endl;
+                            fout << "\"" << currentElseIfCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
+                            fout << "\"" << currentElseIfCondition << "\" -> \"" << num2 << "\" [ label=\" True \" ] ;" << endl;
+                            elseIfCondition = currentElseIfCondition;
                         }
                         else if (previousCondition == "if")
                         {
-                            elseIfCondtion = str.substr(9);
-                            elseIfCondtion = elseIfCondtion.substr(0, elseIfCondtion.size() - 1);
-                            elseIfCondtion = elseIfCondtion.substr(0, elseIfCondtion.size() - 1);
+                            elseIfCondition = str.substr(9);
+                            elseIfCondition = elseIfCondition.substr(0, elseIfCondition.size() - 1);
+                            elseIfCondition = elseIfCondition.substr(0, elseIfCondition.size() - 1);
                             getline(testFile, str);
                             cout << str << "\n";
                             string num3 = mainFunctionHelper(str);
                             str = str.substr(0, str.size() - 1);
-                            fout << "\"" << ifCondition << "\" -> \"" << elseIfCondtion << "\" [ label=\" False \" ] ;" << endl;
-                            fout << "\"" << elseIfCondtion << "\" -> \"" << num3 << "\" [ label=\" True \" ] ;" << endl;
+                            fout << "\"" << ifCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
+                            fout << "\"" << ifCondition << "\" -> \"" << elseIfCondition << "\" [ label=\" False \" ] ;" << endl;
+                            fout << "\"" << elseIfCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
+                            fout << "\"" << elseIfCondition << "\" -> \"" << num3 << "\" [ label=\" True \" ] ;" << endl;
                         }
                         previousCondition = "else if";
                     }
@@ -293,7 +293,7 @@ int main()
                         getline(testFile, str);
                         string num4 = mainFunctionHelper(str);
                         str = str.substr(0, str.size() - 1);
-                        fout << "\"" << elseIfCondtion << "\" -> \"" << num4 << "\" [ label=\" False \" ] ;" << endl;
+                        fout << "\"" << elseIfCondition << "\" -> \"" << num4 << "\" [ label=\" False \" ] ;" << endl;
                     }
                 }
             }

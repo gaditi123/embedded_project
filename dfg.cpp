@@ -27,7 +27,8 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["+"]<<endl;
         fout<<operands[0]<<" -> plus"<<plusChar<<";"<<endl;
         fout<<operands[1]<<" -> plus"<<plusChar<<";"<<endl;
-        fout<<"plus"<<plusChar<<"-> "<<answerVariable[0]<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
+        fout << "plus" << plusChar << "-> " << answerVariable[0] << ";" << endl;
     }else if(operatorArgument == "-"){
         countMinus++;
         char minusChar = countMinus + '0';
@@ -35,6 +36,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["-"]<<endl;
         fout<<operands[0]<<" -> minus"<<minusChar<<";"<<endl;
         fout<<operands[1]<<" -> minus"<<minusChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout<<"minus"<<minusChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }else if(operatorArgument == "*"){
         countMultiply++;
@@ -43,6 +45,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["*"]<<endl;
         fout<<operands[0]<<" -> multiply"<<multiplyChar<<";"<<endl;
         fout<<operands[1]<<" -> multiply"<<multiplyChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout<<"multiply"<<multiplyChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }else if(operatorArgument == "/"){
         countDivide++;
@@ -51,6 +54,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["/"]<<endl;
         fout<<operands[0]<<" -> divide"<<divideChar<<";"<<endl;
         fout<<operands[1]<<" -> divide"<<divideChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout<<"divide"<<divideChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }else if(operatorArgument == "%"){
         countModulo++;
@@ -59,6 +63,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["%"]<<endl;
         fout<<operands[0]<<" -> modulo"<<moduloChar<<";"<<endl;
         fout<<operands[1]<<" -> modulo"<<moduloChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout<<"modulo"<<moduloChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }else if(operatorArgument == "**"){
         countExponent++;
@@ -67,6 +72,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["**"]<<endl;
         fout<<operands[0]<<" -> exponent"<<exponentChar<<";"<<endl;
         fout<<operands[1]<<" -> exponent"<<exponentChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout<<"exponent"<<exponentChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }else if(operatorArgument == "^"){
         countXOR++;
@@ -75,6 +81,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["^"]<<endl;
         fout<<operands[0]<<" -> xor"<<xorChar<<";"<<endl;
         fout<<operands[1]<<" -> xor"<<xorChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout<<"xor"<<xorChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }
     else if(operatorArgument == "&"){
@@ -84,6 +91,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["&"]<<endl;
         fout<<operands[0]<<" -> and"<<andChar<<";"<<endl;
         fout<<operands[1]<<" -> and"<<andChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout<<"and"<<andChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }
     else if(operatorArgument == "|"){
@@ -93,6 +101,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["|"]<<endl;
         fout<<operands[0]<<" -> or"<<orChar<<";"<<endl;
         fout<<operands[1]<<" -> or"<<orChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout<<"or"<<orChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }
     else if(operatorArgument == "~"){
@@ -102,6 +111,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         fout<<operatorsMap["~"]<<endl;
         fout<<operands[0]<<" -> not"<<notChar<<";"<<endl;
         fout<<operands[1]<<" -> not"<<notChar<<";"<<endl;
+        fout << answerVariable[0] << " [fillcolor = lavender, style = filled];\n";
         fout<<"not"<<notChar<<"-> "<<answerVariable[0]<<";"<<endl;
     }
 }
@@ -110,17 +120,17 @@ int main(){
 
     vector<string> ignoreStatements = {"module", "reg", "initial", "$display", "end", "endmodule"};
 
-    operatorsMap.insert({"=", "equali [label = <&#061;>]"});
-    operatorsMap.insert({"+", "plusi [label = <&#043;>]"});
-    operatorsMap.insert({"-", "minusi [label = <&#045;>]"});
-    operatorsMap.insert({"*", "multiplyi [label = <&#042;>]"});
-    operatorsMap.insert({"/", "dividei [label = <&#047;>]"});
-    operatorsMap.insert({"%", "moduloi [label = <&#037;>]"});
-    operatorsMap.insert({"**", "exponenti [label = <&#094;>]"});
-    operatorsMap.insert({"&", "andi [label = <&#038;>]"});
-    operatorsMap.insert({"|", "ori [label = <&#124;>]"});
-    operatorsMap.insert({"~", "noti [label = <&#126;>]"});
-    operatorsMap.insert({"^", "xori [label = <&#8853;>]"});
+    operatorsMap.insert({"=", "equali [label = <&#061;> ,fillcolor=greenyellow, style=filled]"});
+    operatorsMap.insert({"+", "plusi [label = <&#043;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"-", "minusi [label = <&#045;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"*", "multiplyi [label = <&#042;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"/", "dividei [label = <&#047;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"%", "moduloi [label = <&#037;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"**", "exponenti [label = <&#094;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"&", "andi [label = <&#038;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"|", "ori [label = <&#124;> ,fillcolor=lightblue, style=filled]"});
+    operatorsMap.insert({"~", "noti [label = <&#126;> ,fillcolor=lightvlue, style=filled]"});
+    operatorsMap.insert({"^", "xori [label = <&#8853;> ,fillcolor=lightblue, style=filled]"});
 
     fout << "digraph result {" << endl;
     
@@ -161,11 +171,13 @@ int main(){
                        if(variableDetectionCounter == 0) 
                        {    
                            variableNames.push_back(word);
+                           fout << word << " [fillcolor = lightcoral, style=filled]";
                            fout<<"equal"<<equalChar<<" -> "<< word <<";"<<endl;
                        }
                        else if(variableDetectionCounter == 2) {
                            word = word.substr(0, word.size()-1);
                            variableValues.push_back(stoi(word));
+                           fout << word << " [fillcolor = khaki, style=filled]";
                            fout<<word<<" -> "<< "equal" << equalChar<< ";"<<endl;
                        }
                        variableDetectionCounter++;
