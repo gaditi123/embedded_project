@@ -1,25 +1,49 @@
 module des;
 reg [7:0] x;
 reg [7:0] y;
+reg [7:0] z;
+reg [7:0] a;
+reg [7:0] b;
+reg [7:0] c;
+reg [7:0] d;
 
 initial begin
-x = 1827;
-y = 11283;
+x = 1;
+y = 2;
+z = 3;
+a = 4;
+b = 5;
+c = 6;
+d = 7;
 
 if(x % 5 == 0){
-    x = 10;
+    begin
+        x = x * 2;
+    end
 }else if(x < y - 5){
-    y = y - 1;
-}else if(x < y - 25){
-    h = h + 11;
-}else if(x < y + 25){
-    z = z * 291;
-}else if(x < y - 4){
-    f = f / 1099;
+    begin
+        y = y - 1;
+    end
+}else if(x + y > 25){
+    begin
+        z = z + 11;
+    end
+}else if(2*x > y){
+    begin
+        a = a * 121;
+    end
+}else if(x % y == 0){
+    begin
+        b = b / 1331;
+    end
 }else if(x < y - 2){
-    o = o & 198;
+    begin
+        c = c & 14641;
+    end
 }else{
-    q = t + 5;
+    begin
+        d = d * 5;
+    end
 }
 
 end
