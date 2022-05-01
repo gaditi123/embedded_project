@@ -2,8 +2,8 @@
 
 using namespace std;
 
-char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\resultCFG.dot";
-// char result[] = "D:\\embedded_project\\resultCFG.dot";
+// char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\resultCFG.dot";
+char result[] = "D:\\embedded_project\\resultCFG.dot";
 ofstream fout(result);
 
 int main()
@@ -32,9 +32,11 @@ int main()
                 ifCondition = ifCondition.substr(0, ifCondition.size() - 1);
                 fout << "Start -> \"" << ifCondition << "\";" << endl;
                 getline(testFile, str);
+                getline(testFile, str);
                 str = str.substr(0, str.size() - 1);
-                fout << "\"" << ifCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
+                fout << "\"" << ifCondition << "\" [shape = box fillcolor = lavender, style = filled ] ;\n";
                 fout << "\"" << ifCondition << "\" -> \"" << str << "\" [ label=\" True \" ] ;" << endl;
+                getline(testFile, str);
             }
             else if (str.substr(0, 9) == "}else if(")
             {
@@ -44,12 +46,14 @@ int main()
                     currentElseIfCondition = currentElseIfCondition.substr(0, currentElseIfCondition.size() - 1);
                     currentElseIfCondition = currentElseIfCondition.substr(0, currentElseIfCondition.size() - 1);
                     getline(testFile, str);
+                    getline(testFile, str);
                     str = str.substr(0, str.size() - 1);
-                    fout << "\"" << elseIfCondition << "\" [shape = box, fillcolor = tan, style = filled] ;\n";
+                    fout << "\"" << elseIfCondition << "\" [shape = box, fillcolor = lavender, style = filled] ;\n";
                     fout << "\"" << elseIfCondition << "\" -> \"" << currentElseIfCondition << "\" [ label=\" False \" ] ;" << endl;
-                    fout << "\"" << currentElseIfCondition << "\" [shape = box, fillcolor = tan, style = filled] ;\n";
+                    fout << "\"" << currentElseIfCondition << "\" [shape = box, fillcolor = lavender, style = filled] ;\n";
                     fout << "\"" << currentElseIfCondition << "\" -> \"" << str << "\" [ label=\" True \" ] ;" << endl;
                     elseIfCondition = currentElseIfCondition;
+                    getline(testFile, str);
                 }
                 else if (previousCondition == "if")
                 {
@@ -57,19 +61,27 @@ int main()
                     elseIfCondition = elseIfCondition.substr(0, elseIfCondition.size() - 1);
                     elseIfCondition = elseIfCondition.substr(0, elseIfCondition.size() - 1);
                     getline(testFile, str);
+                    getline(testFile, str);
                     str = str.substr(0, str.size() - 1);
-                    fout << "\"" << ifCondition << "\" [shape = box, fillcolor = tan, style = filled ] ;\n";
+                    fout << "\"" << ifCondition << "\" [shape = box, fillcolor = lavender, style = filled ] ;\n";
                     fout << "\"" << ifCondition << "\" -> \"" << elseIfCondition << "\" [ label=\" False \" ] ;" << endl;
-                    fout << "\"" << elseIfCondition << "\" [shape = box, fillcolor = tan, style = filled ] ;\n";
+                    fout << "\"" << elseIfCondition << "\" [shape = box, fillcolor = lavender, style = filled ] ;\n";
                     fout << "\"" << elseIfCondition << "\" -> \"" << str << "\" [ label=\" True \" ] ;" << endl;
+                    getline(testFile, str);
                 }
                 previousCondition = "else if";
             }
             else if (str.substr(0, 6) == "}else{")
             {
                 getline(testFile, str);
+                getline(testFile, str);
                 str = str.substr(0, str.size() - 1);
-                fout << "\"" << elseIfCondition << "\" -> \"" << str << "\" [ label=\" False \" ] ;" << endl;
+                if(previousCondition == "else if"){
+                    fout << "\"" << elseIfCondition << "\" -> \"" << str << "\" [ label=\" False \" ] ;" << endl;
+                }else{
+                    fout << "\"" << ifCondition << "\" -> \"" << str << "\" [ label=\" False \" ] ;" << endl;
+                }
+                getline(testFile, str);
             }
         }
     }
