@@ -118,7 +118,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
 
 int main(){
 
-    vector<string> ignoreStatements = {"module", "reg", "initial", "$display", "end", "endmodule"};
+    vector<string> ignoreStatements = {"module", "reg", "initial", "$display", "end", "endmodule", "wire", "input", "output"};
 
     operatorsMap.insert({"=", "equali [label = <&#061;> ,fillcolor=greenyellow, style=filled]"});
     operatorsMap.insert({"+", "plusi [label = <&#043;> ,fillcolor=lightblue, style=filled]"});
@@ -135,7 +135,7 @@ int main(){
     fout << "digraph result {" << endl;
     
     ifstream testFile;
-    testFile.open("dfgTest.txt");
+    testFile.open("dfgTest4.txt");
     vector<string> variableNames;
     vector<int> variableValues;
     vector<string> answerVariable;
@@ -171,13 +171,13 @@ int main(){
                        if(variableDetectionCounter == 0) 
                        {    
                            variableNames.push_back(word);
-                           fout << word << " [fillcolor = lightcoral, style=filled]";
+                           fout << word << " [fillcolor = lightcoral, style=filled]\n";
                            fout<<"equal"<<equalChar<<" -> "<< word <<";"<<endl;
                        }
                        else if(variableDetectionCounter == 2) {
                            word = word.substr(0, word.size()-1);
                            variableValues.push_back(stoi(word));
-                           fout << word << " [fillcolor = khaki, style=filled]";
+                           fout << word << " [fillcolor = khaki, style=filled]\n";
                            fout<<word<<" -> "<< "equal" << equalChar<< ";"<<endl;
                        }
                        variableDetectionCounter++;
