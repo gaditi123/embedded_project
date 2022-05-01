@@ -16,8 +16,8 @@ int countAND = 0;
 int countOR = 0;
 int countNOT = 0;
 
-char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\resultCombined.dot";
-// char result[] = "D:\\embedded_project\\resultCombined.dot";
+// char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\resultCombined.dot";
+char result[] = "D:\\embedded_project\\resultCombined.dot";
 ofstream fout(result);
 
 void help(vector<string> &answerVariable, vector<string> &operands, string operatorArgument)
@@ -249,11 +249,13 @@ int main()
                         ifCondition = ifCondition.substr(0, ifCondition.size() - 1);
                         fout << "Start -> \"" << ifCondition << "\";" << endl;
                         getline(testFile, str);
+                        getline(testFile, str);
                         cout << str << "\n";
                         string num = mainFunctionHelper(str);
                         str = str.substr(0, str.size() - 1);
                         fout << "\"" << ifCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
                         fout << "\"" << ifCondition << "\" -> \"" << num << "\" [ label=\" True \" ] ;" << endl;
+                        getline(testFile, str);
                     }
                     else if (str.substr(0, 9) == "}else if(")
                     {
@@ -263,6 +265,7 @@ int main()
                             currentElseIfCondition = currentElseIfCondition.substr(0, currentElseIfCondition.size() - 1);
                             currentElseIfCondition = currentElseIfCondition.substr(0, currentElseIfCondition.size() - 1);
                             getline(testFile, str);
+                            getline(testFile, str);
                             cout << str << "\n";
                             string num2 = mainFunctionHelper(str);
                             str = str.substr(0, str.size() - 1);
@@ -271,12 +274,14 @@ int main()
                             fout << "\"" << currentElseIfCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
                             fout << "\"" << currentElseIfCondition << "\" -> \"" << num2 << "\" [ label=\" True \" ] ;" << endl;
                             elseIfCondition = currentElseIfCondition;
+                            getline(testFile, str);
                         }
                         else if (previousCondition == "if")
                         {
                             elseIfCondition = str.substr(9);
                             elseIfCondition = elseIfCondition.substr(0, elseIfCondition.size() - 1);
                             elseIfCondition = elseIfCondition.substr(0, elseIfCondition.size() - 1);
+                            getline(testFile, str);
                             getline(testFile, str);
                             cout << str << "\n";
                             string num3 = mainFunctionHelper(str);
@@ -285,15 +290,22 @@ int main()
                             fout << "\"" << ifCondition << "\" -> \"" << elseIfCondition << "\" [ label=\" False \" ] ;" << endl;
                             fout << "\"" << elseIfCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
                             fout << "\"" << elseIfCondition << "\" -> \"" << num3 << "\" [ label=\" True \" ] ;" << endl;
+                            getline(testFile, str);
                         }
                         previousCondition = "else if";
                     }
                     else if (str.substr(0, 6) == "}else{")
                     {
                         getline(testFile, str);
+                        getline(testFile, str);
                         string num4 = mainFunctionHelper(str);
                         str = str.substr(0, str.size() - 1);
-                        fout << "\"" << elseIfCondition << "\" -> \"" << num4 << "\" [ label=\" False \" ] ;" << endl;
+                        if(previousCondition == "else if"){
+                            fout << "\"" << elseIfCondition << "\" -> \"" << num4 << "\" [ label=\" False \" ] ;" << endl;
+                        }else{
+                            fout << "\"" << ifCondition << "\" -> \"" << num4 << "\" [ label=\" False \" ] ;" << endl;
+                        }
+                        getline(testFile, str);
                     }
                 }
             }
