@@ -8,8 +8,13 @@ reg [7:0] c;
 reg [7:0] d;
 
 initial begin
-x = 3;
-y = 24;
+x = 1;
+y = 2;
+z = 3;
+a = 4;
+b = 5;
+c = 6;
+d = 7;
 
 if(x % 5 == 0){
     begin
@@ -37,7 +42,7 @@ if(x % 5 == 0){
     end
 }else{
     begin
-        d = x + 5;
+        d = d * 5;
     end
 }
 
