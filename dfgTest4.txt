@@ -1,0 +1,21 @@
+module Sr_latch_gated(Q, Qn, dataG, S, R);  
+   output Q;  
+   output Qn;  
+   input  G;     
+   input  dataS;  
+   input  dataR;  
+  
+   wire   dataS1;  
+   wire   R1;  
+     
+initial begin
+dataG = 06;
+dataS = 01;
+dataR = 00;
+
+   S1 = dataG & dataS;    
+   R1 = dataG & dataR; 
+   Qn = S1 | Q;
+   Q = R1 | Qn;
+   
+endmodule   

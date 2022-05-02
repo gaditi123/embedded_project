@@ -1,0 +1,27 @@
+module des;
+input [7:0] dataA;
+input [7:0] dataB;
+input [7:0] cinum;
+output [7:0] cout;
+output [7:0] sum;
+wire w1;
+wire w2;
+wire w3;
+wire w4;
+wire w5;
+
+initial begin
+dataA = 45;
+dataB = 23;
+cinum = 12;
+
+w1 = dataA ^ dataB;
+sum = w1 ^ cinum;
+w2 = dataA & dataB;
+w3 = dataA & cinum;
+w4 = dataB & cinum;
+w5 = w2 | w3;
+cout = w5 | w4;
+
+end
+endmodule;

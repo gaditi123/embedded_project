@@ -1,0 +1,20 @@
+module d_latch(Q, Qn, G, D);  
+   output Q;  
+   output Qn;  
+   input  dataG;     
+   input  dataD;  
+  
+   wire   Dn;   
+   wire   D1;  
+   wire   Dn1;  
+  
+initial begin
+dataG = 12;
+dataD = 15;
+
+   Dn = dataD * -1;  
+   D1 = dataG & dataD;
+   Dn1 = dataG & Dn; 
+   Qn = D1 | Q;
+   Q = Dn1 | Qn;
+endmodule                                     // d_latch
