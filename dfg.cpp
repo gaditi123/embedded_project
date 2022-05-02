@@ -15,8 +15,8 @@ int countOR = 0;
 int countNOT = 0;
 
 //output .dot file path
-char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\resultDFG.dot";
-//char result[] = "D:\\embedded_project\\resultDFG.dot";
+// char result[] = "C:\\Users\\HP'\\Desktop\\semester 5\\Embedded System\\embedded_project\\resultDFG.dot";
+char result[] = "D:\\embedded_project\\resultDFG.dot";
 ofstream fout(result);
 
 //the help function is used to write the equation statements of verilog code to the Graphviz syntax style.
@@ -28,7 +28,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         char plusChar = countPlus + '0';
         operatorsMap["+"][4] = plusChar;
 
-        //writing to the output .dot file to get the assignment statement graph
+        //writing to the output .dot file to get the '+' statement graph
         fout<<operatorsMap["+"]<<endl; 
         fout<<operands[0]<<" -> plus"<<plusChar<<";"<<endl;
         fout<<operands[1]<<" -> plus"<<plusChar<<";"<<endl;
@@ -39,7 +39,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
         char minusChar = countMinus + '0';
         operatorsMap["-"][5] = minusChar;
 
-        //writing to the output .dot file to get the assignment statement graph
+        //writing to the output .dot file to get the '-' statement graph
         fout<<operatorsMap["-"]<<endl;
         fout<<operands[0]<<" -> minus"<<minusChar<<";"<<endl;
         fout<<operands[1]<<" -> minus"<<minusChar<<";"<<endl;
@@ -48,6 +48,8 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
     }else if(operatorArgument == "*"){
         countMultiply++;
         char multiplyChar = countMultiply + '0';
+
+        //writing to the output .dot file to get the '*' statement graph
         operatorsMap["*"][8] = multiplyChar;
         fout<<operatorsMap["*"]<<endl;
         fout<<operands[0]<<" -> multiply"<<multiplyChar<<";"<<endl;
@@ -57,6 +59,8 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
     }else if(operatorArgument == "/"){
         countDivide++;
         char divideChar = countDivide + '0';
+
+        //writing to the output .dot file to get the '/' statement graph
         operatorsMap["/"][6] = divideChar;
         fout<<operatorsMap["/"]<<endl;
         fout<<operands[0]<<" -> divide"<<divideChar<<";"<<endl;
@@ -66,6 +70,8 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
     }else if(operatorArgument == "%"){
         countModulo++;
         char moduloChar = countModulo + '0';
+
+        //writing to the output .dot file to get the '%' statement graph
         operatorsMap["%"][6] = moduloChar;
         fout<<operatorsMap["%"]<<endl;
         fout<<operands[0]<<" -> modulo"<<moduloChar<<";"<<endl;
@@ -75,6 +81,8 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
     }else if(operatorArgument == "**"){
         countExponent++;
         char exponentChar = countExponent + '0';
+
+        //writing to the output .dot file to get the '**' statement graph
         operatorsMap["**"][8] = exponentChar;
         fout<<operatorsMap["**"]<<endl;
         fout<<operands[0]<<" -> exponent"<<exponentChar<<";"<<endl;
@@ -84,6 +92,8 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
     }else if(operatorArgument == "^"){
         countXOR++;
         char xorChar = countXOR + '0';
+
+        //writing to the output .dot file to get the '^' statement graph
         operatorsMap["^"][3] = xorChar;
         fout<<operatorsMap["^"]<<endl;
         fout<<operands[0]<<" -> xor"<<xorChar<<";"<<endl;
@@ -94,6 +104,8 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
     else if(operatorArgument == "&"){
         countAND++;
         char andChar = countAND + '0';
+
+        //writing to the output .dot file to get the '&' statement graph
         operatorsMap["&"][3] = andChar;
         fout<<operatorsMap["&"]<<endl;
         fout<<operands[0]<<" -> and"<<andChar<<";"<<endl;
@@ -104,6 +116,8 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
     else if(operatorArgument == "|"){
         countOR++;
         char orChar = countOR + '0';
+
+        //writing to the output .dot file to get the '|' statement graph
         operatorsMap["|"][2] = orChar;
         fout<<operatorsMap["|"]<<endl;
         fout<<operands[0]<<" -> or"<<orChar<<";"<<endl;
@@ -114,6 +128,8 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
     else if(operatorArgument == "~"){
         countNOT++;
         char notChar = countNOT + '0';
+
+        //writing to the output .dot file to get the '~' statement graph
         operatorsMap["~"][3] = notChar;
         fout<<operatorsMap["~"]<<endl;
         fout<<operands[0]<<" -> not"<<notChar<<";"<<endl;
