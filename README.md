@@ -1,6 +1,10 @@
 # Deriving complete Data flow graphs (DFG) of processor/system modules
-Input - <br />
-Output - 
+**Input** - Verilog code which is **well formatted** using standard Verilog formatting libraries/softwares in a **.txt file** <br />
+**Output** - The graph is produced using Graphviz, which is a graphing software that can be used along with C++, Python etc. To produce the graph, the nodes, edges etc are specified in Graphviz format in a .dot who's written to via our original code. Using text-editor software libraries for Graphviz visulisation (`VS-CODE` - `Graphviz (dot) language support for Visual Studio Code` in our case) to visulize the graph. <br />
+**Requirements** - 
+- Text Editing Software like Vs-Code
+- Graphviz visulisation extension installed into the text editing software
+- Verilog Code 
 
 ## Data Flow Graph(DFG)
 A data-flow graph is a collection of arcs and nodes in which the nodes are either places where variables are assigned or used, and the arcs show the relationship between the places where a variable is assigned and where the assigned value is subsequently used.<br /><br />
