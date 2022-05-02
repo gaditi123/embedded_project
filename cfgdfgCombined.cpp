@@ -118,7 +118,7 @@ void help(vector<string> &answerVariable, vector<string> &operands, string opera
     }
 }
 
-string mainFunctionHelper(string str)
+string dfgExpandHelper(string str)
 {
 
     // vector<string> ignoreStatements = {"module", "reg", "initial", "$display", "end", "endmodule"};
@@ -251,7 +251,7 @@ int main()
                         getline(testFile, str);
                         getline(testFile, str);
                         cout << str << "\n";
-                        string num = mainFunctionHelper(str);
+                        string num = dfgExpandHelper(str);
                         str = str.substr(0, str.size() - 1);
                         fout << "\"" << ifCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
                         fout << "\"" << ifCondition << "\" -> \"" << num << "\" [ label=\" True \" ] ;" << endl;
@@ -267,7 +267,7 @@ int main()
                             getline(testFile, str);
                             getline(testFile, str);
                             cout << str << "\n";
-                            string num2 = mainFunctionHelper(str);
+                            string num2 = dfgExpandHelper(str);
                             str = str.substr(0, str.size() - 1);
                             fout << "\"" << elseIfCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
                             fout << "\"" << elseIfCondition << "\" -> \"" << currentElseIfCondition << "\" [ label=\" False \" ] ;" << endl;
@@ -284,7 +284,7 @@ int main()
                             getline(testFile, str);
                             getline(testFile, str);
                             cout << str << "\n";
-                            string num3 = mainFunctionHelper(str);
+                            string num3 = dfgExpandHelper(str);
                             str = str.substr(0, str.size() - 1);
                             fout << "\"" << ifCondition << "\" [shape = box fillcolor = tan, style = filled ] ;\n";
                             fout << "\"" << ifCondition << "\" -> \"" << elseIfCondition << "\" [ label=\" False \" ] ;" << endl;
@@ -298,7 +298,7 @@ int main()
                     {
                         getline(testFile, str);
                         getline(testFile, str);
-                        string num4 = mainFunctionHelper(str);
+                        string num4 = dfgExpandHelper(str);
                         str = str.substr(0, str.size() - 1);
                         if(previousCondition == "else if"){
                             fout << "\"" << elseIfCondition << "\" -> \"" << num4 << "\" [ label=\" False \" ] ;" << endl;
