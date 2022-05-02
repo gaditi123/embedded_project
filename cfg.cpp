@@ -14,7 +14,7 @@ int main()
     fout << "digraph result {" << endl;
 
     ifstream testFile;
-    testFile.open("cfgTest.txt");
+    testFile.open("cfgTest1.txt");
 
     if (testFile.is_open())
     {

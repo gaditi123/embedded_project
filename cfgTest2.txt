@@ -1,0 +1,19 @@
+module des;
+reg [7:0] x;
+reg [7:0] y;
+
+initial begin
+x = 25;
+
+if(x % 2 == 0){
+    begin
+        y = (x*x) - 2;
+    end
+}else{
+    begin
+        y = x + 5;
+    end
+}
+
+end
+endmodule;
